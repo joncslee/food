@@ -1,0 +1,73 @@
+# Some Food Site!
+
+What will it have...
+
+- good photography
+- recipes
+  - recipe index/organization
+
+- tags, categories - link to filtered archive
+  - good tags to have: fast, cheap, easy
+- clean commenting
+
+- clean look
+  - small text; easy to read; make sure theres enough line height
+  - clean logo
+
+
+- about section
+  - how we got started, pictures
+
+- blogs we like
+
+
+
+- should feel welcoming, not super fun?
+
+- everything is a blog post, some blog posts are recipes
+
+  - recipes have clear recipe "card" (also printable)
+
+  - recipe ratings (that we decide on)
+
+- recipes
+  - serving size
+  - prep time / cook time
+  - recipe list - plain text, parse carriage returns into list items
+
+
+rounded corners?
+
+- archive
+  
+- affiliate links! for sidebar
+
+
+iamafoodblog.com - good design!
+- pinterest style tiling - "explore recipes"
+- bold headers
+
+"what we cook with"
+- links to amazon?
+
+- use the finished the whole30 badge
+
+- social media sharing - done well
+
+Popular Posts - Page Views:
+https://github.com/charlotte-ruby/impressionist
+
+Ratings
+https://github.com/edgarjs/ajaxful-rating
+
+rails g model Recipe title:string prep_time:string cook_time:string serves:integer ingredients:text directions:text
+
+RECIPE
+- prep time
+- cook time
+- serving size
+- ingredients
+- directions
+- rating
+
+** eventually, nest recipe form inside post? **

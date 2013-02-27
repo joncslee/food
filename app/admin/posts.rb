@@ -1,0 +1,10 @@
+ActiveAdmin.register Post do
+  form do |f|
+    f.inputs do
+      f.input :kind, :as => :select, :collection => { 'Blog' => 'blog', 'Recipe' => 'recipe', 'Restaurant' => 'restaurant' }, :required => true
+      f.input :title, :required => true
+      f.input :content, :as => :ckeditor, :required => true
+    end
+    f.buttons
+  end
+end

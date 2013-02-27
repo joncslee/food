@@ -1,0 +1,40 @@
+<% title @post.title %>
+
+<h1><%= @post.title %></h1>
+
+<% @post.categories.each do |category| %>
+  <%= category.name %>
+<% end %>
+
+<%= @post.content.html_safe %>
+
+<% if @post.kind == 'recipe' && @post.recipes.present? %>
+  <% @post.recipes.each do |recipe| %>
+    <div class="recipe">
+      <h2><%= recipe.title %></h2>
+      <p class="stats">
+        Serves: <%= recipe.serves %>
+        • Prep Time: <%= recipe.prep_time %>
+        • Cook Time: <%= recipe.cook_time %>
+      </p>
+      <h3>Ingredients</h3>
+      <ul>
+        <% recipe.ingredients.each_line do |ingredient| %>
+          <% if ingredient.present? %>
+            <li><%= ingredient %></li>
+          <% end %>
+        <% end %>
+      </ul>
+
+      <h3>Directions</h3>
+      <ol>
+        <% recipe.directions.each_line do |direction| %>
+          <% if direction.present? %>
+            <li><%= direction %></li>
+          <% end %>
+        <% end %>
+      </ol>
+
+    </div>
+  <% end %>
+<% end %>

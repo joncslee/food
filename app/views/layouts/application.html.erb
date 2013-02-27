@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food | <%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <div class="row">
+      <div class="twelve columns">
+        <nav class="top-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+            <li><a href="/">Eating Out</a></li>
+            <li><a href="/">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="two columns left-sidebar">
+        <a href="/">
+          <img src="http://www.placehold.it/200x200" class="logo" />
+        </a>
+
+        <ul class="side-nav">
+          <% @menu_categories.each do |category| %>
+            <li><%= link_to "#{category.name.titleize} (#{category.count})", "/archive/#{category.name}" %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="seven columns">
+        <%= yield %>
+      </div>
+
+      <div class="three columns right-sidebar">
+        <div class="popular">
+          <h3>Top Posts</h3>
+          <img src="http://www.placehold.it/300x150" />
+          <ol>
+            <li>Cauliflower Fried Rice</li>
+            <li>Chicken Thigh</li>
+            <li>Chocolate Chili</li>
+            <li>Beets!</li>
+            <li>Sweet Potato Fritters</li>
+          </ol>
+        </div>
+
+        <div class="popular">
+          <h3>New Posts</h3>
+          <img src="http://www.placehold.it/300x150" />
+          <ol>
+            <li>Cauliflower Fried Rice</li>
+            <li>Chicken Thigh</li>
+            <li>Chocolate Chili</li>
+            <li>Beets!</li>
+            <li>Sweet Potato Fritters</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="row">
+      <div class="twelve columns">
+        FOOTER
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

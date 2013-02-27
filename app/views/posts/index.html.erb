@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="twelve columns">
+    <% post = @posts.first %>
+    <% if post.present? %>
+      <div class="feature">
+        <img src="http://www.placehold.it/1000x500" />
+        <h1><%= link_to post.title, post %></h1>
+        <%= raw post.content %>
+      </div>
+    <% end %>
+
+    <ul>
+      <% @posts.each do |post| %>
+        <li><%= link_to post.title, post %></li>
+      <% end %>
+    </ul>
+
+
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+one:
+  title: MyString
+  content: MyText
+  post_type: MyString
+
+two:
+  title: MyString
+  content: MyText
+  post_type: MyString

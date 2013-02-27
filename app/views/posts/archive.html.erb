@@ -1,0 +1,9 @@
+<% title 'Archive' %>
+
+
+Category: <%= @category %>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.archive_title, post %></li>
+  <% end %>
+</ul>
