@@ -1,4 +1,11 @@
 ActiveAdmin.register Post do
+  index do
+    column "Title" do |post|
+      link_to post.title, admin_post_path(post)
+    end
+    column :kind
+  end
+
   form do |f|
     f.inputs do
       f.input :kind, :as => :select, :collection => { 'Blog' => 'blog', 'Recipe' => 'recipe', 'Restaurant' => 'restaurant' }, :required => true

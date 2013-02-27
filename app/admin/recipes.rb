@@ -1,4 +1,10 @@
 ActiveAdmin.register Recipe do
+  index do
+    column "Title" do |post|
+      link_to post.title, admin_post_path(post)
+    end
+  end
+
   form do |f|
     f.inputs do
       f.input :post, :required => true
