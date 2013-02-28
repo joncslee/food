@@ -45,11 +45,9 @@
           <h3>Top Posts</h3>
           <img src="http://www.placehold.it/300x150" />
           <ol>
-            <li>Cauliflower Fried Rice</li>
-            <li>Chicken Thigh</li>
-            <li>Chocolate Chili</li>
-            <li>Beets!</li>
-            <li>Sweet Potato Fritters</li>
+            <% @top_posts.each do |p| %>
+              <li><%= link_to p.title, p %></li>
+            <% end %>
           </ol>
         </div>
 
@@ -57,11 +55,9 @@
           <h3>New Posts</h3>
           <img src="http://www.placehold.it/300x150" />
           <ol>
-            <li>Cauliflower Fried Rice</li>
-            <li>Chicken Thigh</li>
-            <li>Chocolate Chili</li>
-            <li>Beets!</li>
-            <li>Sweet Potato Fritters</li>
+            <% @new_posts.each do |p| %>
+              <li><%= link_to p.title, p %></li>
+            <% end %>
           </ol>
         </div>
       </div>
