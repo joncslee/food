@@ -2,9 +2,11 @@
 
 <h1><%= @post.title %></h1>
 
-<% @post.categories.each do |category| %>
-  <%= category.name %>
-<% end %>
+<ul class="categories">
+  <% @post.categories.each do |category| %>
+    <li><a href="/archive/<%= category.name %>"><%= category.name %></a></li>
+  <% end %>
+</ul>
 
 <%= @post.content.html_safe %>
 
@@ -12,11 +14,7 @@
   <% @post.recipes.each do |recipe| %>
     <div class="recipe">
       <h2><%= recipe.title %></h2>
-      <p class="stats">
-        Serves: <%= recipe.serves %>
-        • Prep Time: <%= recipe.prep_time %>
-        • Cook Time: <%= recipe.cook_time %>
-      </p>
+      <p class="stats"><%= recipe.stats %></p>
       <h3>Ingredients</h3>
       <ul>
         <% recipe.ingredients.each_line do |ingredient| %>

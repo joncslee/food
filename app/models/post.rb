@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   has_many :recipes
 
   def categories
-    recipes.map{|r| r.categories }.flatten.compact.uniq{|r| r.name }
+    recipes.map{|r| r.categories }.flatten.compact.uniq{|r| r.name }.sort_by! {|c| c.name }
   end
 
   def archive_title
