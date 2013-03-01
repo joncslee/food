@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :content, :kind
 
   has_many :recipes
+  has_many :comments
 
   def categories
     recipes.map{|r| r.categories }.flatten.compact.uniq{|r| r.name }.sort_by! {|c| c.name }

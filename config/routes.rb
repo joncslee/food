@@ -5,7 +5,9 @@ Food::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :posts
+  resources :posts do
+    resources :comments, :only => [:create, :delete]
+  end
 
   match 'recipes' => 'posts#recipes'
 

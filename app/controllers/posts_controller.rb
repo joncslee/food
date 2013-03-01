@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post.increment!(:impressions)
+    @comment = Comment.new
   end
 
   def archive

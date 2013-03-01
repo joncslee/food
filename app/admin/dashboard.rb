@@ -43,5 +43,17 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+
+    columns do
+      column do
+        panel "Recent Post Comments" do
+          ul do
+            Comment.all.map do |comment|
+              li link_to(comment.content, comment.post)
+            end
+          end
+        end
+      end
+    end
   end # content
 end
