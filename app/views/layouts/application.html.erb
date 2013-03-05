@@ -29,7 +29,7 @@
           <img src="http://www.placehold.it/200x200" class="logo" />
         </a>
 
-        <ul class="side-nav">
+        <ul class="side-nav hide-for-small">
           <% @menu_categories.each do |category| %>
             <li><%= link_to "#{category.name.titleize} (#{category.count})", "/archive/#{category.name}" %></li>
           <% end %>
@@ -41,9 +41,9 @@
       </div>
 
       <div class="three columns right-sidebar">
-        <div class="popular">
+        <div class="popular hide-for-small">
           <h3>Top Posts</h3>
-          <img src="http://www.placehold.it/300x150" />
+          <%= image_tag @top_posts.first.image.thumb %>
           <ol>
             <% @top_posts.each do |p| %>
               <li><%= link_to p.title, p %></li>
@@ -51,9 +51,9 @@
           </ol>
         </div>
 
-        <div class="popular">
+        <div class="popular hide-for-small">
           <h3>New Posts</h3>
-          <img src="http://www.placehold.it/300x150" />
+          <%= image_tag @new_posts.first.image.thumb %>
           <ol>
             <% @new_posts.each do |p| %>
               <li><%= link_to p.title, p %></li>

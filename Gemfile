@@ -44,7 +44,8 @@ gem 'nifty-generators', :group => :development
 gem 'activeadmin'
 gem 'ckeditor'
 gem 'carrierwave'
-gem 'rmagick'
+# gem 'rmagick'
+gem 'mini_magick'
 gem 'friendly_id'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 

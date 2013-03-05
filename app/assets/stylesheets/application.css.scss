@@ -14,7 +14,7 @@
 // put global variables here!
 
 @import "foundation_and_overrides.scss";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:300|Dosis|Londrina+Shadow|Londrina+Outline|Arvo);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400|Dosis|Londrina+Shadow|Londrina+Outline|Arvo);
 @import 'compass';
 
 body {
@@ -35,7 +35,8 @@ h1 {
   }
 }
 p {
-  font-size: 16px;
+  font-size: 15px;
+  margin-bottom: 12px;
 }
 
 .container { padding: 20px 20px 0;}
@@ -116,6 +117,12 @@ ul.categories {
       }
     }
   }
+}
+
+img.headline {
+  padding: 5px;
+  @include box-shadow(#888 2px 2px 10px);
+  margin-bottom: 20px;
 }
 
 /*

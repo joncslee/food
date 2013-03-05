@@ -71,3 +71,10 @@ RECIPE
 - rating
 
 ** eventually, nest recipe form inside post? **
+
+use sanitize gem for comments
+https://github.com/rgrove/sanitize/
+
+need admin tools for comments
+
+recipes page - pinterest style

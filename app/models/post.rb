@@ -2,8 +2,9 @@ class Post < ActiveRecord::Base
   acts_as_tagger
   extend FriendlyId
   friendly_id :title, use: :slugged
+  mount_uploader :image, ImageUploader
   
-  attr_accessible :title, :content, :kind
+  attr_accessible :title, :content, :kind, :image
 
   has_many :recipes
   has_many :comments

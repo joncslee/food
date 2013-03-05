@@ -11,6 +11,7 @@ ActiveAdmin.register Post do
       f.input :kind, :as => :select, :collection => { 'Blog' => 'blog', 'Recipe' => 'recipe', 'Restaurant' => 'restaurant' }, :required => true
       f.input :title, :required => true
       f.input :content, :as => :ckeditor, :required => true
+      f.input :image
     end
     f.buttons
   end

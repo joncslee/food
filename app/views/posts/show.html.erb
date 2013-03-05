@@ -8,6 +8,8 @@
   <% end %>
 </ul>
 
+<%= image_tag @post.image.url, :class => "headline" %>
+
 <%= @post.content.html_safe %>
 
 <% if @post.kind == 'recipe' && @post.recipes.present? %>
