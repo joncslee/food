@@ -1,0 +1,13 @@
+<header>
+  <div class="row">
+    <div class="twelve columns">
+      <nav class="top-nav">
+        <ul>
+          <li <% if params[:controller] == 'posts' && params[:action] == 'index' %>class="current"<% end %>><a href="/">Home</a></li>
+          <li <% if params[:controller] == 'posts' && (params[:action] == 'archive' || params[:action] == 'category') %>class="current"<% end %>><a href="/archive">Recipes</a></li>
+          <li <% if params[:controller] == 'misc' && params[:action] == 'about_us' %>class="current"<% end %>><a href="/about-us">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

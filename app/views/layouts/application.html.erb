@@ -1,77 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>We Cook and We Eat | <%= yield_for(:title, "Food, Recipes, and Ramblings") %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-<body>
-  <header>
-    <div class="row">
-      <div class="twelve columns">
-        <nav class="top-nav">
-          <ul>
-            <li <% if params[:controller] == 'posts' && params[:action] == 'index' %>class="current"<% end %>><a href="/">Home</a></li>
-            <li <% if params[:controller] == 'posts' && (params[:action] == 'archive' || params[:action] == 'category') %>class="current"<% end %>><a href="/archive">Recipes</a></li>
-            <li><a href="/about-us">About Us</a></li>
+  <%= render :partial => 'misc/head' %>
+
+  <body>
+    <%= render :partial => 'misc/header' %>
+
+    <div class="container">
+      <div class="row">
+        <div class="two columns left-sidebar">
+          <a href="/">
+            <img src="http://www.placehold.it/200x200" class="logo hide-for-small" />
+            <img src="http://www.placehold.it/650x200" class="logo show-for-small" style="margin-bottom: 20px;" />
+          </a>
+
+          <ul class="side-nav hide-for-small">
+            <% @menu_categories.each do |category| %>
+              <li><%= link_to "#{category.name.titleize} (#{category.count})", "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}" %></li>
+            <% end %>
           </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <div class="container">
-    <div class="row">
-      <div class="two columns left-sidebar">
-        <a href="/">
-          <img src="http://www.placehold.it/200x200" class="logo hide-for-small" />
-          <img src="http://www.placehold.it/650x200" class="logo show-for-small" style="margin-bottom: 20px;" />
-        </a>
-
-        <ul class="side-nav hide-for-small">
-          <% @menu_categories.each do |category| %>
-            <li><%= link_to "#{category.name.titleize} (#{category.count})", "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}" %></li>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="seven columns">
-        <%= yield %>
-      </div>
-
-      <div class="three columns right-sidebar">
-        <div class="popular hide-for-small">
-          <h3>Top Posts</h3>
-          <%= link_to (image_tag @top_posts.first.image.thumb), @top_posts.first %>
-          <ol>
-            <% @top_posts.each do |p| %>
-              <li><%= link_to p.title, p, :title => p.title %></li>
-            <% end %>
-          </ol>
         </div>
 
-        <div class="popular hide-for-small">
-          <h3>New Posts</h3>
-          <%= link_to (image_tag @new_posts.first.image.thumb, :alt => @new_posts.first.title), @new_posts.first, :title => @new_posts.first.title %>
-          <ol>
-            <% @new_posts.each do |p| %>
-              <li><%= link_to p.title, p, :title => p.title %></li>
-            <% end %>
-          </ol>
+        <div class="seven columns">
+          <%= yield %>
+        </div>
+
+        <div class="three columns right-sidebar">
+          <div class="popular hide-for-small">
+            <h3>Top Posts</h3>
+            <%= link_to (image_tag @top_posts.first.image.thumb), @top_posts.first %>
+            <ol>
+              <% @top_posts.each do |p| %>
+                <li><%= link_to p.title, p, :title => p.title %></li>
+              <% end %>
+            </ol>
+          </div>
+
+          <div class="popular hide-for-small">
+            <h3>New Posts</h3>
+            <%= link_to (image_tag @new_posts.first.image.thumb, :alt => @new_posts.first.title), @new_posts.first, :title => @new_posts.first.title %>
+            <ol>
+              <% @new_posts.each do |p| %>
+                <li><%= link_to p.title, p, :title => p.title %></li>
+              <% end %>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <footer>
-    <div class="row">
-      <div class="twelve columns">
-        We Cook And We Eat &#169; <%= Time.now.year %>
-      </div>
-    </div>
-  </footer>
+    <%= render :partial => 'misc/footer' %>
 
-</body>
+  </body>
 </html>

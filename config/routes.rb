@@ -1,4 +1,5 @@
 Food::Application.routes.draw do
+
   mount Ckeditor::Engine => '/ckeditor'
 
   ActiveAdmin.routes(self)
@@ -13,6 +14,8 @@ Food::Application.routes.draw do
 
   match 'archive' => 'posts#archive'
   match 'archive/:id' => 'posts#category'
+
+  match 'about-us' => 'misc#about_us'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
