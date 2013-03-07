@@ -48,5 +48,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'friendly_id'
 gem 'acts-as-taggable-on', '~> 2.3.1'
+gem 'ruby-duration'
 
 gem 'mocha', :group => :test

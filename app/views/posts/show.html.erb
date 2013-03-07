@@ -1,92 +1,95 @@
 <% title @post.title %>
 
-<h1><%= @post.title %></h1>
-<div class="subheadline">
-  <%= @post.created_at.strftime('%B %d, %Y') %>
-  | <a href="#comments"><%= @post.comments.length %> Comments</a>
-</div>
+<div class="hrecipe">
+  <h1><%= @post.title %></h1>
+  <div class="subheadline">
+    <span class="published"><%= @post.created_at.strftime('%B %d, %Y') %></span>
+    | <a href="#comments"><%= @post.comments.length %> Comments</a>
+  </div>
 
-<ul class="categories">
-  <% @post.categories.each do |category| %>
-    <li><%= link_to category, "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}" %></li>
-  <% end %>
-</ul>
+  <ul class="categories">
+    <% @post.categories.each do |category| %>
+      <li><%= link_to category, "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}", :rel => "tag" %></li>
+    <% end %>
+  </ul>
 
-<%= image_tag @post.image.url, :class => "headline" %>
+  <%= image_tag @post.image.url, :class => "headline photo" %>
 
-<%= @post.content.html_safe %>
+  <%= @post.content.html_safe %>
 
-<% if @post.kind == 'recipe' && @post.recipes.present? %>
-  <% @post.recipes.each do |recipe| %>
-    <div class="recipe">
-      <h2><%= recipe.title %></h2>
-      <p class="stats"><%= recipe.stats %></p>
-      <h3>Ingredients</h3>
-      <ul>
-        <% recipe.ingredients.each_line do |ingredient| %>
-          <% if ingredient.present? %>
-            <li><%= ingredient %></li>
+  <% if @post.kind == 'recipe' && @post.recipes.present? %>
+    <% @post.recipes.each do |recipe| %>
+      <div class="recipe">
+        <h2 class="fn"><%= recipe.title %></h2>
+        <p class="stats"><%= recipe.stats.html_safe %></p>
+        <h3>Ingredients</h3>
+        <ul>
+          <% recipe.ingredients.each_line do |ingredient| %>
+            <% if ingredient.present? %>
+              <li><span class="ingredient"><%= ingredient %></span></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </ul>
 
-      <h3>Directions</h3>
-      <ol>
-        <% recipe.directions.each_line do |direction| %>
-          <% if direction.present? %>
-            <li><%= direction %></li>
-          <% end %>
-        <% end %>
-      </ol>
+        <h3>Directions</h3>
+        <div class="instructions">
+          <ol>
+            <% recipe.directions.each_line do |direction| %>
+              <% if direction.present? %>
+                <li><%= direction %></li>
+              <% end %>
+            <% end %>
+          </ol>
+        </div>
 
-    </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
-<h2>Comments</h2>
+  <h2>Comments</h2>
 
-<div id="comments">
-  <% @post.comments.each_with_index do |comment, id| %>
-    <%= render :partial => 'comments/show', :locals => { :comment => comment, :id => id } %>
-  <% end %>
+  <div id="comments">
+    <% @post.comments.each_with_index do |comment, id| %>
+      <%= render :partial => 'comments/show', :locals => { :comment => comment, :id => id } %>
+    <% end %>
+  </div>
+
+  <div id="comment-form">
+    <%= form_for [@post, @comment], :remote => true, :html => { :id => 'create-comment-form' } do |f| %>
+      <div class="validation-error"></div>
+
+      <div class="row">
+        <div class="four columns">
+          <%= f.text_field :name %>
+        </div>
+        <div class="eight columns">
+          <label class="inline">Name (required)</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="four columns">
+          <%= f.text_field :email %>
+        </div>
+        <div class="eight columns">
+          <label class="inline">Email (required but unpublished)</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="four columns">
+          <%= f.text_field :website %>
+        </div>
+        <div class="eight columns">
+          <label class="inline">Website</label>
+        </div>
+      </div>
+
+      <%= f.text_area :content %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
-
-<div id="comment-form">
-  <%= form_for [@post, @comment], :remote => true, :html => { :id => 'create-comment-form' } do |f| %>
-    <div class="validation-error"></div>
-
-    <div class="row">
-      <div class="four columns">
-        <%= f.text_field :name %>
-      </div>
-      <div class="eight columns">
-        <label class="inline">Name (required)</label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="four columns">
-        <%= f.text_field :email %>
-      </div>
-      <div class="eight columns">
-        <label class="inline">Email (required but unpublished)</label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="four columns">
-        <%= f.text_field :website %>
-      </div>
-      <div class="eight columns">
-        <label class="inline">Website</label>
-      </div>
-    </div>
-
-    <%= f.text_area :content %>
-    <%= f.submit %>
-  <% end %>
-</div>
-
 
 <script>
   $(document).ready(function(){

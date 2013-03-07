@@ -151,6 +151,9 @@ GEM
       json (~> 1.4)
     responders (0.9.3)
       railties (~> 3.1)
+    ruby-duration (2.1.4)
+      activesupport (>= 3.0.0)
+      i18n
     sass (3.2.5)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -199,6 +202,7 @@ DEPENDENCIES
   nifty-generators
   pg
   rails (= 3.2.11)
+  ruby-duration
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   zurb-foundation
