@@ -31,3 +31,11 @@
   width: 76% !important;
   overflow: hidden;
 }
+
+ol li.fl {
+  float: left; 
+  margin-right: 2em;
+  label {
+    width: 100% !important;
+  }
+}

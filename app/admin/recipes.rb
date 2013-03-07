@@ -9,14 +9,17 @@ ActiveAdmin.register Recipe do
     f.inputs do
       f.input :post, :required => true
       f.input :title, :required => true
-      f.input :prep_time_minutes
-      f.input :prep_time_hours
-      f.input :cook_time_minutes
-      f.input :cook_time_hours
       f.input :serves
       f.input :ingredients, :required => true
       f.input :directions, :required => true
       f.input :category_list, :required => true, :as => :check_boxes, :collection => ApplicationHelper::RECIPE_CATEGORIES
+    end
+
+    f.inputs "Durations" do
+      f.input :prep_time_minutes, :wrapper_html =>  { :class => 'fl' }
+      f.input :prep_time_hours, :wrapper_html =>  { :class => 'fl' }
+      f.input :cook_time_minutes, :wrapper_html =>  { :class => 'fl' }
+      f.input :cook_time_hours, :wrapper_html =>  { :class => 'fl' }
     end
     f.buttons
   end
