@@ -1,7 +1,7 @@
 <div class="comment">
   <div class="headline">
     <% if comment.website.present? %>
-      <div class="name"><%= link_to comment.name, comment.website %></div>
+      <div class="name"><%= link_to comment.name, comment.website, :rel => "nofollow" %></div>
     <% else %>
       <div class="name"><%= comment.name %></div>
     <% end %>

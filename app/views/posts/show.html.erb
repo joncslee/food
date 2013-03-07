@@ -8,7 +8,7 @@
 
 <ul class="categories">
   <% @post.categories.each do |category| %>
-    <li><%= link_to category, "/archive##{category.name}", :title => "Recipes for #{category.name.titleize}" %></li>
+    <li><%= link_to category, "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}" %></li>
   <% end %>
 </ul>
 

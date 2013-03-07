@@ -14,11 +14,15 @@ class PostsController < ApplicationController
   end
 
   def archive
-    @category = params[:id]
-    @posts = Post.tagged_with(@category)
+    @posts = Post.all
+  end
 
-    if @posts.blank?
+  def category
+    @category = params[:id]
+    if @category == 'all'
       @posts = Post.all
+    else
+      @posts = Post.tagged_with(@category)
     end
   end
 end

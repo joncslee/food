@@ -280,5 +280,24 @@ img.headline {
   }
   h2 {
     font-size: 30px;
+    a {
+      color: #222;
+    }
+  }
+}
+
+.category {
+  li {
+    text-align: center;
+  }
+  img {
+    padding: 5px;
+    border: 1px solid $line-color;
+  }
+
+  a.back {
+    display: block;
+    text-align: center;
+    margin: -10px 0 20px;
   }
 }

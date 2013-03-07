@@ -12,7 +12,7 @@ Food::Application.routes.draw do
   match 'recipes' => 'posts#archive'
 
   match 'archive' => 'posts#archive'
-  match 'archive/:id' => 'posts#archive'
+  match 'archive/:id' => 'posts#category'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
