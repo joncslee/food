@@ -9,7 +9,7 @@ Food::Application.routes.draw do
     resources :comments, :only => [:create, :delete]
   end
 
-  match 'recipes' => 'posts#recipes'
+  match 'recipes' => 'posts#archive'
 
   match 'archive' => 'posts#archive'
   match 'archive/:id' => 'posts#archive'

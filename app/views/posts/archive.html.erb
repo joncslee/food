@@ -2,9 +2,15 @@
 
 <h1>Recipe Archive</h1>
 
-Category: <%= @category %>
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.archive_title, post %></li>
+<div class="archive">
+  <% @menu_categories.each do |category| %>
+    <h2><%= category.name.titleize %></h2>
+    <% posts = Post.tagged_with(category.name) %>
+    <ul>
+      <% posts.each do |post| %>
+        <li><%= link_to post.title, post %></li>
+      <% end %>
+    </ul>
   <% end %>
-</ul>
+</div>
+

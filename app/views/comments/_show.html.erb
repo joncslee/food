@@ -1,6 +1,10 @@
 <div class="comment">
   <div class="headline">
-    <div class="name"><%= comment.name %></div>
+    <% if comment.website.present? %>
+      <div class="name"><%= link_to comment.name, comment.website %></div>
+    <% else %>
+      <div class="name"><%= comment.name %></div>
+    <% end %>
     <div class="date"><%= comment.created_at.strftime('%b %e, %Y') %></div>
   </div>
   <div class="content">

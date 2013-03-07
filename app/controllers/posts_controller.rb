@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.limit(10).reverse
   end
 
   def recipes
@@ -16,5 +16,9 @@ class PostsController < ApplicationController
   def archive
     @category = params[:id]
     @posts = Post.tagged_with(@category)
+
+    if @posts.blank?
+      @posts = Post.all
+    end
   end
 end

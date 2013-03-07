@@ -3,18 +3,31 @@
     <% post = @posts.first %>
     <% if post.present? %>
       <div class="feature">
-        <%= image_tag post.image.headline %>
-        <h1><%= link_to post.title, post %></h1>
-        <%= raw post.content %>
+        <%= link_to (image_tag post.image.headline, :alt => post.title), post, :title => post.title %>
+        <h1><%= link_to post.title, post, :title => post.title %></h1>
+        <%= raw truncate(post.content, :length => 400, :separator => ' ') %>
+        <%= link_to "Read More", post, :class => "more", :title => post.title %>
       </div>
     <% end %>
 
-    <ul>
+    <div class="posts">
       <% @posts.each do |post| %>
-        <li><%= link_to post.title, post %></li>
+        <% unless post == @posts.first %>
+          <div class="post">
+            <div class="row">
+              <div class="four columns">
+                <%= link_to (image_tag post.image.thumb, :alt => post.title), post, :title => post.title %>
+              </div>
+              <div class="eight columns">
+                <h2><%= link_to post.title, post, :title => post.title %></h2>
+                <%= raw truncate(post.content, :length => 300, :separator => ' ') %>
+                <%= link_to "Read More", post, :class => "more", :title => post.title %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    </ul>
-
+    </div>
 
   </div>
 </div>

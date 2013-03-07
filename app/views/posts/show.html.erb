@@ -1,10 +1,14 @@
 <% title @post.title %>
 
 <h1><%= @post.title %></h1>
+<div class="subheadline">
+  <%= @post.created_at.strftime('%B %d, %Y') %>
+  | <a href="#comments"><%= @post.comments.length %> Comments</a>
+</div>
 
 <ul class="categories">
   <% @post.categories.each do |category| %>
-    <li><a href="/archive/<%= category.name %>"><%= category.name %></a></li>
+    <li><%= link_to category, "/archive##{category.name}", :title => "Recipes for #{category.name.titleize}" %></li>
   <% end %>
 </ul>
 
