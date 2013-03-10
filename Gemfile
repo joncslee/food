@@ -55,4 +55,6 @@ gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'ruby-duration'
 gem 'nokogiri'
 
+gem "fog", "~> 1.3.1"
+
 gem 'mocha', :group => :test
