@@ -29,7 +29,7 @@
         <div class="three columns right-sidebar">
           <div class="popular hide-for-small">
             <h3>Top Posts</h3>
-            <%= link_to (image_tag @top_posts.first.image.thumb), @top_posts.first %>
+            <%= link_to (image_tag @top_posts.first.image.thumb, :alt => @top_posts.first.title), @top_posts.first, :title => @top_posts.first.title %>
             <ol>
               <% @top_posts.each do |p| %>
                 <li><%= link_to p.title, p, :title => p.title %></li>
