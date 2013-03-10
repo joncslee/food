@@ -1,5 +1,9 @@
 <head>
-  <title>We Cook and We Eat | <%= yield_for(:title, "Food, Recipes, and Ramblings") %></title>
+  <% if has_title %>
+    <title><%= yield_for(:title, "Food, Recipes, and Ramblings") %> | We Cook and We Eat</title>
+  <% else %>
+    <title>We Cook and We Eat | <%= yield_for(:title, "Food, Recipes, and Ramblings") %></title>
+  <% end %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>

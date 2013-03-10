@@ -9,6 +9,11 @@ module ApplicationHelper
     output
   end
 
+  def has_title
+    output = content_for(:title)
+    output.present?
+  end
+
   RECIPE_CATEGORIES = {
     'appetizers' => 'appetizers',
     'sides' => 'sides',
