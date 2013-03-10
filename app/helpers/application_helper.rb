@@ -3,16 +3,24 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
+
   def yield_for(content_sym, default)
     output = content_for(content_sym)
     output = default if output.blank?
     output
   end
 
-  def has_title
-    output = content_for(:title)
+  def description(page_description)
+    content = ''
+    content = page_description if page_description.present?
+    content_for(:description) { content }
+  end
+
+  def has_content_for(sym)
+    output = content_for(sym)
     output.present?
   end
+
 
   RECIPE_CATEGORIES = {
     'appetizers' => 'appetizers',

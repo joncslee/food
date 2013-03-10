@@ -98,7 +98,7 @@ header {
 footer {
   margin-top: 30px;
   padding: 20px 0;
-  border-top: 1px solid $line-color;
+  border-top: 1px dashed $line-color;
   text-align: center;
 }
 

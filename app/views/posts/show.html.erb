@@ -1,4 +1,5 @@
 <% title @post.title %>
+<% description (truncate(Nokogiri::HTML(CGI.unescapeHTML(@post.content)).content, :length => 160, :separator => ' ')) %>
 
 <div class="hrecipe">
   <h1><%= @post.title %></h1>

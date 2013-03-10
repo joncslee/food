@@ -12,6 +12,15 @@ class Post < ActiveRecord::Base
   def categories
     recipes.map{|r| r.categories }.flatten.compact.uniq{|r| r.name }.sort_by! {|c| c.name }
   end
+  def category_list
+    categories = recipes.map{|r| r.categories }.flatten.compact.uniq{|r| r.name }.sort_by! {|c| c.name }.map {|c| c.name}
+
+    list = ''
+    categories.each do |c|
+      list += "#{c}, "
+    end
+    list
+  end
 
   def archive_title
     if recipes && recipes.count > 1

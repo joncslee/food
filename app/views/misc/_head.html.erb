@@ -1,5 +1,5 @@
 <head>
-  <% if has_title %>
+  <% if has_content_for(:title) %>
     <title><%= yield_for(:title, "Food, Recipes, and Ramblings") %> | We Cook and We Eat</title>
   <% else %>
     <title>We Cook and We Eat | <%= yield_for(:title, "Food, Recipes, and Ramblings") %></title>
@@ -7,5 +7,18 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <% if @post.present? %>
+    <meta name="keywords" content="<%= @post.title %>, <%= @post.category_list %>recipes, paleo, whole 30, healthy, we cook and we eat">
+  <% else %>
+    <meta name="keywords" content="recipes, cooking, paleo, whole 30, recipes, eating, healthy, food, restaurants, we cook and we eat">
+  <% end %>
+
+  <% if has_content_for(:description) %>
+    <meta name="description" content="<%= yield(:description) %>">
+  <% else %>
+    <meta name="description" content="">
+  <% end %>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
