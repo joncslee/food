@@ -7,7 +7,7 @@ Food::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :posts do
-    resources :comments, :only => [:create, :delete]
+    resources :comments, :only => [:create, :destroy]
   end
 
   match 'recipes' => 'posts#archive'

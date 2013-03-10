@@ -255,6 +255,12 @@ img.headline {
   }
 }
 
+a.comment-delete {
+  display: block;
+  margin-top: 5px;
+  color: red;
+}
+
 #comment-form {
   .validation-error ul {
     margin-left: 15px;

@@ -28,5 +28,16 @@ class CommentsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    respond_to do |format|
+      format.html { redirect_to @post }
+      format.xml  { head :ok }
+    end
+  end
 end
 
