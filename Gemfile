@@ -45,7 +45,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'nifty-generators', :group => :development
-gem 'activeadmin'
+gem "activeadmin", :git => "git://github.com/gregbell/active_admin.git"
 gem 'ckeditor'
 gem 'carrierwave'
 # gem 'rmagick'
