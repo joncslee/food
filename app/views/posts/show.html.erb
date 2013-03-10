@@ -15,7 +15,9 @@
 
   <%= image_tag @post.image.url, :class => "headline photo" %>
 
-  <%= @post.content.html_safe %>
+  <div class="post-content">
+    <%= @post.content.html_safe %>
+  </div>
 
   <% if @post.kind == 'recipe' && @post.recipes.present? %>
     <% @post.recipes.each do |recipe| %>

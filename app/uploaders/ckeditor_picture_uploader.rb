@@ -13,7 +13,7 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "images/posts/#{model.id}"
+    "images/ckeditor_post_embeds/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -24,9 +24,8 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   process :resize_to_fit => [623, 100000]
 
-  # Create different versions of your uploaded files:
-# version :thumb do
-#   process :resize_to_fill => [118, 100]
+# version :small do
+#   process :resize_to_fit => [400, 100000]
 # end
 
 # version :content do

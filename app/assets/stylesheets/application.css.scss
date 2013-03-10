@@ -17,7 +17,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Open+Sans:400|Open+Sans:700|Dosis|Londrina+Shadow|Londrina+Outline|Arvo);
 @import 'compass';
 
-$line-color: #dbdbdb;
+$line-color: #cdcdcd;
 $splash-primary: #849826;
 $splash-primary-2: #475920;
 
@@ -58,11 +58,25 @@ ul {
   margin-left: 15px;
 }
 
+img {
+  padding: 3px;
+  border: 1px solid $line-color !important;
+}
+img.logo {
+  padding: 0;
+  border: none !important;
+  a.show-for-small & {
+    display: block;
+    width: 70%;
+    margin: -10px auto 30px;
+  }
+}
+
 .container { padding: 30px 20px 0;}
 
 header {
   padding: 15px 0;
-  border-bottom: 1px solid $line-color;
+  border-bottom: 1px dashed $line-color;
   nav.top-nav {
     ul {
       float: right;
@@ -77,7 +91,6 @@ header {
           color: $splash-primary;
         }
       }
-      
     }
   }
 }
@@ -91,13 +104,13 @@ footer {
 
 .left-sidebar {
   ul.side-nav {
-    border-top: 1px solid $line-color;
+    border-top: 1px dashed $line-color;
     padding: 0;
     margin-top: 20px;
     li {
       margin: 0;
       padding: 7px 0;
-      border-bottom: 1px solid $line-color;
+      border-bottom: 1px dashed $line-color;
       font-size: 12px;
     }
   }
@@ -109,8 +122,6 @@ footer {
   }
   img {
     margin-bottom: 5px;
-    padding: 5px;
-    border: 1px solid $line-color;
   }
   p {
     margin-bottom: 20px;
@@ -129,12 +140,12 @@ footer {
 
 .posts {
   margin-top: 20px;
+  clear: both;
+  float: left;
 }
 .post {
   margin-bottom: 20px;
   img {
-    padding: 5px;
-    border: 1px solid $line-color;
     width: 250px;
   }
   h2 {
@@ -146,10 +157,27 @@ footer {
 .feature {
   img {
     margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid $line-color;
   }
 }
+
+p.blurb {
+  margin-bottom: 5px;
+}
+
+a.more {
+  float: right;
+  display:block;
+  text-align: center;
+  padding: 7px;
+  background: $splash-primary;
+  color: #fff;
+  font-size: 12px;
+  &:hover {
+    background: $splash-secondary;
+    color: #222;
+  }
+}
+
 
 /*
  * Post
@@ -184,10 +212,12 @@ ul.categories {
 }
 
 img.headline {
-  padding: 10px;
-  border: 1px solid $line-color;
   margin-bottom: 20px;
-  background: #f7f7f7;
+}
+
+.post-content img {
+  margin: 0 auto 10px;
+  display: block;
 }
 
 /*
@@ -289,15 +319,12 @@ img.headline {
   li {
     text-align: center;
   }
-  img {
-    padding: 5px;
-    border: 1px solid $line-color;
-  }
 
   a.back {
     display: block;
     text-align: center;
     margin: -10px 0 20px;
+    text-transform: uppercase;
   }
 }
 
@@ -311,9 +338,14 @@ img.headline {
   .summary {
     margin-bottom: 10px;
   }
-  .profiles h2 {
-    font-size: 24px;
-    text-align: center;
+  .profiles {
+    h2 {
+      font-size: 24px;
+      text-align: center;
+    }
+    p {
+      text-align: left;
+    }
   }
 }
 

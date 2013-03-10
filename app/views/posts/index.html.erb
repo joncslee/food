@@ -5,7 +5,7 @@
       <div class="feature">
         <%= link_to (image_tag post.image.headline, :alt => post.title), post, :title => post.title %>
         <h1><%= link_to post.title, post, :title => post.title %></h1>
-        <%= raw truncate(post.content, :length => 400, :separator => ' ') %>
+        <p class="blurb"><%= raw truncate(Nokogiri::HTML(CGI.unescapeHTML(post.content)).content, :length => 400, :separator => ' ') %></p>
         <%= link_to "Read More", post, :class => "more", :title => post.title %>
       </div>
     <% end %>
@@ -20,7 +20,7 @@
               </div>
               <div class="eight columns">
                 <h2><%= link_to post.title, post, :title => post.title %></h2>
-                <%= raw truncate(post.content, :length => 300, :separator => ' ') %>
+                <p class="blurb"><%= raw truncate(Nokogiri::HTML(CGI.unescapeHTML(post.content)).content, :length => 300, :separator => ' ') %></p>
                 <%= link_to "Read More", post, :class => "more", :title => post.title %>
               </div>
             </div>

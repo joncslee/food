@@ -5,9 +5,13 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', :group => :development
-gem 'pg', :group => :production
-
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+group :development, :test do
+  gem 'mysql2'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -49,5 +53,6 @@ gem 'mini_magick'
 gem 'friendly_id'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'ruby-duration'
+gem 'nokogiri'
 
 gem 'mocha', :group => :test
