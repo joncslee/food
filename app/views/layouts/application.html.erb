@@ -27,7 +27,7 @@
         </div>
 
         <div class="three columns right-sidebar">
-          <div class="popular hide-for-small">
+          <div class="top-posts hide-for-small">
             <h3>Top Posts</h3>
             <%= link_to (image_tag @top_posts.first.image.thumb, :alt => @top_posts.first.title), @top_posts.first, :title => @top_posts.first.title %>
             <ol>
@@ -37,7 +37,7 @@
             </ol>
           </div>
 
-          <div class="popular hide-for-small">
+          <div class="new-posts hide-for-small">
             <h3>New Posts</h3>
             <%= link_to (image_tag @new_posts.first.image.thumb, :alt => @new_posts.first.title), @new_posts.first, :title => @new_posts.first.title %>
             <ol>
@@ -45,6 +45,18 @@
                 <li><%= link_to p.title, p, :title => p.title %></li>
               <% end %>
             </ol>
+          </div>
+
+          <div class="books hide-for-small">
+            <h3>What We're Reading</h3>
+            <% @books.each do |book| %>
+              <div class="book">
+                <%= book.amazon_link.html_safe %>
+                <p class="description"><%= book.description %> asjddsklf s asldlsdf sf lfsl ksdfl ksdflkj sdfl ksdlksdflk sdfl dfk jdfk jdfkj dfk jdfk jdfk jda sdsdfdf jsdfk dkfjd fkdj fkdj fkdj fk djfk dfk dfk jdfk djflsdfk sdkf sdfks jdfk sdjfks jdfk sdfk jsdflk dflkdflkd fldk fjo woeirwoi wrp woe rwoi weori sdklj skd fkd fdk jfsldfls df sjdfkd dkfsdlfkjs ddk fsdfjsk dfjs dfks jdfks jdfkj sdfk jsdfk jsdkff</p>
+                <div class="btm-border"></div>
+              </div>
+            <% end %>
+              
           </div>
         </div>
       </div>

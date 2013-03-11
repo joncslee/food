@@ -125,12 +125,35 @@ footer {
   }
   p {
     margin-bottom: 20px;
-    text-align: center;
   }
   li {
     font-size: 12px;
     line-height: 14px;
     padding-bottom: 5px;
+  }
+  .book {
+    margin-bottom: 20px;
+    clear: both;
+    h4 {
+      font-family: "Open Sans", "Helvetica Neue", "Helvetica";
+      text-transform: none;
+      font-size: 18px;
+    }
+    a {
+      float: left;
+      margin-right: 10px;
+    }
+    p.description {
+      margin-top: -15px;
+      line-height: 14px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .btm-border {
+      clear: both;
+      border-bottom: 1px dashed $line-color;
+    }
+      
   }
 }
 
