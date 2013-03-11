@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.limit(10).reverse
+    @posts = Post.all(:order => 'created_at DESC', :limit => 20)
   end
 
   def recipes

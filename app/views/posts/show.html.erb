@@ -11,13 +11,11 @@
     | <a href="#comments"><%= @post.comments.length %> Comments</a>
   </div>
 
-  <% if @post.kind == 'recipe' && @post.categories.present? %>
-    <ul class="categories">
-      <% @post.categories.each do |category| %>
-        <li><%= link_to category, "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}", :rel => "tag" %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <ul class="categories">
+    <% @post.categories.each do |category| %>
+      <li><%= link_to category, "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}", :rel => "tag" %></li>
+    <% end %>
+  </ul>
 
   <%= image_tag @post.image.url, :class => "headline photo" %>
 

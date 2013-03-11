@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   end
 
   def get_posts
-    @new_posts = Post.all(:order => 'created_at DESC', :limit => 5)
-    @top_posts = Post.all(:order => 'impressions DESC', :limit => 5)
+    @top_recipes = Post.where(:kind => 'recipe').order('impressions DESC').limit(5)
+    @top_restaurants = Post.where(:kind => 'restaurant').order('impressions DESC').limit(5)
   end
 
   def get_books

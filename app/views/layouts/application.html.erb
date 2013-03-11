@@ -28,20 +28,20 @@
 
         <div class="three columns right-sidebar">
           <div class="top-posts hide-for-small">
-            <h3>Top Posts</h3>
-            <%= link_to (image_tag @top_posts.first.image.thumb, :alt => @top_posts.first.title), @top_posts.first, :title => @top_posts.first.title %>
+            <h3>Top Recipes</h3>
+            <%= link_to (image_tag @top_recipes.first.image.thumb, :alt => @top_recipes.first.title), @top_recipes.first, :title => @top_recipes.first.title %>
             <ol>
-              <% @top_posts.each do |p| %>
+              <% @top_recipes.each do |p| %>
                 <li><%= link_to p.title, p, :title => p.title %></li>
               <% end %>
             </ol>
           </div>
 
           <div class="new-posts hide-for-small">
-            <h3>New Posts</h3>
-            <%= link_to (image_tag @new_posts.first.image.thumb, :alt => @new_posts.first.title), @new_posts.first, :title => @new_posts.first.title %>
+            <h3>Top Restaurants</h3>
+            <%= link_to (image_tag @top_restaurants.first.image.thumb, :alt => @top_restaurants.first.title), @top_restaurants.first, :title => @top_restaurants.first.title %>
             <ol>
-              <% @new_posts.each do |p| %>
+              <% @top_restaurants.each do |p| %>
                 <li><%= link_to p.title, p, :title => p.title %></li>
               <% end %>
             </ol>
