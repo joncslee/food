@@ -17,7 +17,7 @@
     <% end %>
   </ul>
 
-  <%= image_tag @post.image.url, :class => "headline photo" %>
+  <%= image_tag @post.image.url, :alt => @post.title, :class => "headline photo" %>
 
   <div class="post-content">
     <%= @post.content.html_safe %>
