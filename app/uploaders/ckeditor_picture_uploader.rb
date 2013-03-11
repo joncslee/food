@@ -22,14 +22,21 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :resize_to_fit => [623, 100000]
+  process :auto_orient
+
+  def auto_orient
+    manipulate! do |image|
+      image.auto_orient
+      image
+    end
+  end
 
   version :content do
     process :resize_to_fit => [623, 100000]
   end
 
   version :thumb do
-    process :resize_to_fill => [250, 150]
+    process :resize_to_fit => [300, 100000]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
