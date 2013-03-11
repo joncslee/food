@@ -1,7 +1,7 @@
 <header>
   <div class="row">
     <div class="twelve columns">
-      <%= link_to 'WE COOK AND WE EAT', '/', :class => 'site' %>
+      <%= link_to 'WE COOK AND WE EAT', '/', :class => 'site', :title => "We Cook And We Eat" %>
       <nav class="top-nav">
         <ul>
           <li <% if params[:controller] == 'posts' && params[:action] == 'index' %>class="current"<% end %>><a href="/">Home</a></li>
