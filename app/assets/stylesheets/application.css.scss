@@ -45,7 +45,6 @@ h2 {
   font-size: 35px;
 }
 p {
-  font-size: 14px;
   margin-bottom: 12px;
 }
 a {
@@ -120,7 +119,6 @@ footer {
       text-align: center;
       margin: 0;
       border-bottom: 1px dashed $line-color;
-      font-size: 12px;
       a {
         padding: 7px 0;
         &:hover {
@@ -143,7 +141,6 @@ footer {
     margin-bottom: 20px;
   }
   li {
-    font-size: 12px;
     line-height: 14px;
     padding-bottom: 5px;
   }
@@ -162,7 +159,6 @@ footer {
     p.description {
       margin-top: -15px;
       line-height: 20px;
-      font-size: 12px;
       margin-bottom: 15px;
     }
     .btm-border {
@@ -210,7 +206,6 @@ a.more {
   padding: 7px;
   background: $splash-primary;
   color: #fff;
-  font-size: 12px;
   &:hover {
     background: $splash-secondary;
     color: #222;
