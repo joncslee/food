@@ -93,6 +93,15 @@ header {
       }
     }
   }
+  a.site {
+    float: left; 
+    font-weight: bold; 
+    color: #dcdcdc; 
+    margin-top: 5px;
+    &:hover {
+      color: $splash-primary;
+    }
+  }
 }
 
 footer {
@@ -116,7 +125,7 @@ footer {
         padding: 7px 0;
         &:hover {
           background: $splash-secondary;
-          color: $splash-primary-2;
+          color: #222;
         }
       }
     }
