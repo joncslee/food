@@ -36,7 +36,11 @@ class CkeditorPictureUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fit => [300, 100000]
+    process :resize_to_fit => [118, 100]
+  end
+
+  version :small do
+    process :resize_to_fill => [400, 100000]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
