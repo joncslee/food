@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_books
-    @books = Book.all
+    @all_books = Book.all(:order => 'created_at DESC')
   end
 
 end
