@@ -109,9 +109,15 @@ footer {
     margin-top: 20px;
     li {
       margin: 0;
-      padding: 7px 0;
       border-bottom: 1px dashed $line-color;
       font-size: 12px;
+      a {
+        padding: 7px 0;
+        &:hover {
+          background: $splash-secondary;
+          color: $splash-primary-2;
+        }
+      }
     }
   }
 }

@@ -4,6 +4,7 @@
   <% else %>
     <title>We Cook and We Eat | <%= yield_for(:title, "Food, Recipes, and Ramblings") %></title>
   <% end %>
+  <%= favicon_link_tag %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
