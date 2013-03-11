@@ -1,18 +1,23 @@
 <% title @post.title %>
 <% description (truncate(Nokogiri::HTML(CGI.unescapeHTML(@post.content)).content, :length => 160, :separator => ' ')) %>
 
-<div class="hrecipe">
+<% if @post.kind == 'recipe' %>
+  <div class="hrecipe">
+<% end %>
+
   <h1><%= @post.title %></h1>
   <div class="subheadline">
     <span class="published"><%= @post.created_at.strftime('%B %d, %Y') %></span>
     | <a href="#comments"><%= @post.comments.length %> Comments</a>
   </div>
 
-  <ul class="categories">
-    <% @post.categories.each do |category| %>
-      <li><%= link_to category, "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}", :rel => "tag" %></li>
-    <% end %>
-  </ul>
+  <% if @post.kind == 'recipe' && @post.categories.present? %>
+    <ul class="categories">
+      <% @post.categories.each do |category| %>
+        <li><%= link_to category, "/archive/#{category.name}", :title => "Recipes for #{category.name.titleize}", :rel => "tag" %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <%= image_tag @post.image.url, :class => "headline photo" %>
 
@@ -92,7 +97,10 @@
       <%= f.submit %>
     <% end %>
   </div>
-</div>
+
+<% if @post.kind == 'recipe' %>
+  </div>
+<% end %>
 
 <script>
   $(document).ready(function(){
