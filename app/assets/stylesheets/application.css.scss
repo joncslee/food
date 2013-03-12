@@ -156,6 +156,11 @@ footer {
       float: left;
       margin-right: 10px;
     }
+    p.title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
     p.description {
       margin-top: -15px;
       line-height: 20px;
@@ -249,9 +254,21 @@ img.headline {
   margin-bottom: 20px;
 }
 
-.post-content img {
-  margin: 0 auto 10px;
-  display: block;
+.post-content {
+  img {
+    margin: 0 auto;
+    display: block;
+    &.small {
+      width: 400px;
+    }
+  }
+  figure {
+    font-style: italic;
+    margin: -20px 0 20px;
+    display: block;
+    text-align: center;
+  }
+
 }
 
 /*
