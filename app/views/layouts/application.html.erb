@@ -51,6 +51,7 @@
             <h3>What We're Reading</h3>
             <% @all_books.each do |book| %>
               <div class="book">
+                <p class="title"><%= book.title %></p>
                 <%= book.amazon_link.html_safe %>
                 <p class="description"><%= book.description %></p>
                 <div class="btm-border"></div>
