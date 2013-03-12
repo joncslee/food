@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_books
 
   def get_categories
-    @menu_categories = Recipe.tag_counts_on(:categories)
+    @menu_categories = Recipe.tag_counts_on(:categories).sort_by {|c| c.name }
   end
 
   def get_posts
