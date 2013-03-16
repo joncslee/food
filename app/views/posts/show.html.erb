@@ -50,6 +50,28 @@
 
       </div>
     <% end %>
+
+  <% elsif @post.kind == 'restaurant' && @post.restaurants.present? %>
+
+    <% @post.restaurants.each do |restaurant| %>
+      <div class="restaurant">
+        <h2><%= restaurant.name %></h2>
+        <div class="row">
+          <div class="six columns">
+            <p class="info">
+              <%= restaurant.street %><br />
+              <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.zipcode %><br />
+              <%= restaurant.phone %><br />
+              <%= link_to restaurant.website, restaurant.website %><br />
+            </p>
+          </div>
+          <div class="six columns">
+            <%= simple_format restaurant.hours, :class => 'info' %>
+          </div>
+        </div>
+        <p class="description"><%= restaurant.description %></p>
+      </div>
+    <% end %>
   <% end %>
 
   <h2>Comments</h2>

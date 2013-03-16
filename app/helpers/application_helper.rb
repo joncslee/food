@@ -34,6 +34,10 @@ module ApplicationHelper
     'soups' => 'soups'
   }
 
+  RESTAURANT_CATEGORIES = {
+    'seafood' => 'seafood'
+  }
+
   def analytics_tag
     script = <<-END
       <script type="text/javascript">

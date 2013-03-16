@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :content, :kind, :image
 
   has_many :recipes
+  has_many :restaurants
   has_many :comments
 
   def categories
