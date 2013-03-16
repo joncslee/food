@@ -9,10 +9,10 @@
       <div class="row">
         <div class="two columns left-sidebar">
           <a href="/" title="We Cook And We Eat" class="hide-for-small">
-            <%= image_tag 'logo.png', :alt => "We Cook And We Eat", :class => "logo" %>
+            <%= image_tag 'logo.png', :alt => "We Cook And We Eat", :class => "logo", :id => "logo-normal" %>
           </a>
           <a href="/" title="We Cook And We Eat" class="show-for-small">
-            <%= image_tag 'logo-wide.png', :alt => "We Cook And We Eat", :class => "logo" %>
+            <%= image_tag 'logo-wide.png', :alt => "We Cook And We Eat", :class => "logo", :id => "logo-wide" %>
           </a>
 
           <ul class="side-nav hide-for-small">
@@ -66,7 +66,7 @@
     <%= render :partial => 'misc/footer' %>
 
     <script>
-      $('img.logo').hover(function() {
+      $('img#logo-normal').hover(function() {
         $(this).attr('src', '/assets/logo-hover.png');
       }, function() {
         $(this).attr('src', '/assets/logo.png');
