@@ -3,7 +3,7 @@ class Recipe < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  attr_accessible :cook_time_hours, :cook_time_minutes, :directions, :ingredients, :post_id, :prep_time_hours, :prep_time_minutes, :serves, :title, :category_list
+  attr_accessible :cook_time_hours, :cook_time_minutes, :directions, :ingredients, :post_id, :prep_time_hours, :prep_time_minutes, :title, :category_list, :attribution_title, :attribution_url, :quantity
 
   belongs_to :post
 
@@ -31,7 +31,7 @@ class Recipe < ActiveRecord::Base
 
   def stats
     stats = []
-    stats << "Serves: #{serves}" if serves.present?
+    stats << quantity if quantity.present?
     stats << "Prep Time: <span class='preptime'>#{prep_time}<span class='value-title' title='#{prep_time_8601}'></span></span>" if prep_time.present?
     stats << "Cook Time: <span class='cooktime'>#{cook_time}<span class='value-title' title='#{cook_time_8601}'></span></span>" if cook_time.present?
     stats.join(" | ")

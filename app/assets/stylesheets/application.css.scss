@@ -351,10 +351,13 @@ a.comment-delete {
   }
 }
 
-.recipe .stats {
-  font-style: italic;
-  font-size: 14px;
-  margin: -5px 0 0 0;
+.recipe {
+  .stats {
+    font-size: 14px;
+    margin: -5px 0 0 0;
+  }
+  .attribution {
+  }
 }
 
 .restaurant {

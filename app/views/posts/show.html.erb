@@ -28,6 +28,9 @@
       <div class="recipe">
         <h2 class="fn"><%= recipe.title %></h2>
         <p class="stats"><%= recipe.stats.html_safe %></p>
+        <% if recipe.attribution_title.present? %>
+          <p class="attribution">Adapted from <%= link_to recipe.attribution_title, recipe.attribution_url %></p>
+        <% end %>
         <h3>Ingredients</h3>
         <ul>
           <% recipe.ingredients.each_line do |ingredient| %>

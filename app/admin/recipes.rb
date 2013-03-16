@@ -9,10 +9,12 @@ ActiveAdmin.register Recipe do
     f.inputs do
       f.input :post, :required => true
       f.input :title, :required => true
-      f.input :serves
+      f.input :quantity
       f.input :ingredients, :required => true
       f.input :directions, :required => true
       f.input :category_list, :required => true, :as => :check_boxes, :collection => ApplicationHelper::RECIPE_CATEGORIES
+      f.input :attribution_title
+      f.input :attribution_url
     end
 
     f.inputs "Durations" do
