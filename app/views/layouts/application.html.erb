@@ -65,5 +65,14 @@
 
     <%= render :partial => 'misc/footer' %>
 
+    <script>
+      $('img.logo').hover(function() {
+        $(this).attr('src', '/assets/logo-hover.png');
+      }, function() {
+        $(this).attr('src', '/assets/logo.png');
+      });
+    </script>
+
+
   </body>
 </html>
