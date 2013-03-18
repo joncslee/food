@@ -224,13 +224,12 @@ a.more {
  * Post
  */
 .controls {
-  margin-bottom: 10px;
   a {
     padding: 8px;
-    background: $splash-primary;
     margin: 0 0 15px 0;
-    color: #fff;
+    color: #999;
     font-size: 12px;
+    font-style: italic;
     &:hover {
       background: $splash-secondary;
       color: #222;
@@ -242,6 +241,9 @@ a.more {
       float: right;
     }
   }
+}
+.controls.top a {
+  margin-bottom: 0;
 }
 
 .subheadline {
