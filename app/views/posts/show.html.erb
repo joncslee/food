@@ -14,6 +14,9 @@
   <div class="subheadline">
     <span class="published"><%= @post.created_at.strftime('%B %d, %Y') %></span>
     | <a href="#comments"><%= @post.comments.length %> Comments</a>
+    <% if admin_user_signed_in? %>
+      | <%= link_to "Edit", admin_post_path(@post), :style => "color: red;" %>
+    <% end %>
   </div>
 
   <ul class="categories">
