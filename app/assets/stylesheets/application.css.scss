@@ -36,6 +36,7 @@ h1 {
   text-transform: none;
   margin: 0 0 20px;
   text-align: center;
+  clear: both;
   a {
     color: #222;
   }
@@ -43,6 +44,7 @@ h1 {
 
 h2 {
   font-size: 35px;
+  clear: both;
 }
 p {
   margin-bottom: 12px;
@@ -221,6 +223,26 @@ a.more {
 /*
  * Post
  */
+.controls {
+  margin-bottom: 10px;
+  a {
+    padding: 8px;
+    background: $splash-primary;
+    margin: 0 0 15px 0;
+    color: #fff;
+    font-size: 12px;
+    &:hover {
+      background: $splash-secondary;
+      color: #222;
+    }
+    &.previous {
+      float: left;
+    }
+    &.next {
+      float: right;
+    }
+  }
+}
 
 .subheadline {
   color: #999;

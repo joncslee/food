@@ -77,6 +77,11 @@
     <% end %>
   <% end %>
 
+  <div class="controls">
+    <%= link_to("&larr; Previous Post".html_safe, @post.prev, :class => 'previous', :title => @post.prev.title) if @post.prev.present? %>
+    <%= link_to("Next Post &rarr;".html_safe, @post.next, :class => 'next', :title => @post.next.title) if @post.next.present? %>
+  </div>
+
   <h2>Comments</h2>
 
   <div id="comments">

@@ -32,6 +32,14 @@ class Post < ActiveRecord::Base
     t
   end
 
+  def next
+    Post.where("id > ?", id).order("id ASC").first
+  end
+
+  def prev
+    Post.where("id < ?", id).order("id ASC").last
+  end
+
   def self.tagged_with(category)
     posts = Recipe.all.map{|r| r.post if r.category_list.include?(category) }.compact.uniq{|p| p.id}
     posts
