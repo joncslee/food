@@ -4,6 +4,10 @@ ActiveAdmin.register Post do
       link_to post.title, admin_post_path(post)
     end
     column :kind
+    column :is_active
+    column "" do |post|
+      link_to "View", post
+    end
   end
 
   form do |f|
