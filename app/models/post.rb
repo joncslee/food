@@ -33,11 +33,11 @@ class Post < ActiveRecord::Base
   end
 
   def next
-    Post.where("id > ?", id).order("id ASC").first
+    Post.where("id > ?", id).where(:is_active => '1').order("id ASC").first
   end
 
   def prev
-    Post.where("id < ?", id).order("id ASC").last
+    Post.where("id < ?", id).where(:is_active => '1').order("id ASC").last
   end
 
   def self.tagged_with(category)
