@@ -231,8 +231,7 @@ a.more {
     font-size: 12px;
     font-style: italic;
     &:hover {
-      background: $splash-secondary;
-      color: #222;
+      color: $splash-primary;
     }
     &.previous {
       float: left;

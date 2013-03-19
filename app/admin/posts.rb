@@ -20,4 +20,8 @@ ActiveAdmin.register Post do
     end
     f.buttons
   end
+
+  action_item :only => :show do
+    link_to "View", resource
+  end
 end
