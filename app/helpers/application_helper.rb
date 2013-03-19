@@ -23,6 +23,7 @@ module ApplicationHelper
 
 
   RECIPE_CATEGORIES = {
+    'paleo' => 'paleo',
     'appetizers' => 'appetizers',
     'sides' => 'sides',
     'mains' => 'mains',
