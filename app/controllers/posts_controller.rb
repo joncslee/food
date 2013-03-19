@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all(:order => 'created_at DESC', :limit => 20)
+    @posts = Post.where(:is_active => '1').order('created_at DESC').limit(20)
   end
 
   def recipes
@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   end
 
   def archive
-    @posts = Post.all
   end
 
   def category
@@ -22,7 +21,7 @@ class PostsController < ApplicationController
     if @category == 'all'
       @posts = Post.all
     else
-      @posts = Post.tagged_with(@category)
+      @posts = Post.where(:is_active => '1').tagged_with(@category)
     end
   end
 end

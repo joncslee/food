@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   friendly_id :title, use: :slugged
   mount_uploader :image, ImageUploader
   
-  attr_accessible :title, :content, :kind, :image
+  attr_accessible :title, :content, :kind, :image, :is_active
 
   has_many :recipes
   has_many :restaurants

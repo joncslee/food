@@ -12,6 +12,7 @@ ActiveAdmin.register Post do
       f.input :title, :required => true
       f.input :content, :as => :ckeditor, :required => true
       f.input :image
+      f.input :is_active
     end
     f.buttons
   end
