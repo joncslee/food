@@ -36,8 +36,8 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recent Restaurants" do
           ul do
-            Recipe.all.map do |recipe|
-              li link_to(recipe.title, admin_recipe_path(recipe))
+            Restaurant.all.map do |restaurant|
+              li link_to(restaurant.name, admin_restaurant_path(restaurant))
             end
           end
         end
