@@ -62,5 +62,8 @@ module Food
 
     config.assets.initialize_on_precompile = false
 
+    config.rakismet.key = '7f1125281318'
+    config.rakismet.url = 'http://wecookandweeat.com'
+
   end
 end

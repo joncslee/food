@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(params[:comment])
 
-    if @comment.save
+    if !@comment.spam? && @comment.save
       respond_with do |format|
         format.html do
           if request.xhr?

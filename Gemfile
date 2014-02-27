@@ -54,6 +54,7 @@ gem 'friendly_id'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'ruby-duration'
 gem 'nokogiri'
+gem 'rakismet'
 
 gem "fog", "~> 1.3.1"
 
